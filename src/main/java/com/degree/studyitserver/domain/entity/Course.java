@@ -18,5 +18,7 @@ public class Course {
 
     private String domain;
 
+    private String studyProgram;
+
     private Short year;
 }

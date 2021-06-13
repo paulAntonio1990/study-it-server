@@ -3,11 +3,13 @@ package com.degree.studyitserver.mapper;
 import com.degree.studyitserver.domain.dto.CourseDto;
 import com.degree.studyitserver.domain.entity.Course;
 import org.mapstruct.Mapper;
+import org.mapstruct.factory.Mappers;
 
 import java.util.List;
 
 @Mapper(componentModel = "spring")
 public interface CourseMapper {
+    CourseMapper INSTANCE = Mappers.getMapper(CourseMapper.class);
 
     CourseDto toDto(Course course);
     Course toEntity(CourseDto courseDto);

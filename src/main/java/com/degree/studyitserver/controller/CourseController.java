@@ -12,6 +12,8 @@ import java.util.List;
 @RequestMapping(path = "/course")
 public class CourseController {
 
+    private static final String GUI_URL = "http://localhost:4200";
+
     private final CourseService courseService;
     private final CourseMapper courseMapper;
 
@@ -22,13 +24,15 @@ public class CourseController {
         this.courseMapper = courseMapper;
     }
 
+    @CrossOrigin(origins = GUI_URL)
     @PostMapping(path = "/add-course")
     public CourseDto addCourse(@RequestBody CourseDto newCourse) {
         return courseMapper.toDto(
                 courseService.create(courseMapper.toEntity(newCourse)));
     }
 
-    @GetMapping(path = "find-all")
+    @CrossOrigin(origins = GUI_URL)
+    @GetMapping(path = "/find-all")
     private List<CourseDto> findAllCourses() {
         return courseMapper.toDtos(courseService.findAll());
     }
