@@ -2,6 +2,8 @@ package com.degree.studyitserver.domain.dto;
 
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 public class CourseDto {
 
@@ -10,5 +12,6 @@ public class CourseDto {
     private String domain;
     private String studyProgram;
     private Short year;
+    private List<TutoringSessionDto> tutoringSessionDtos;
 
 }
