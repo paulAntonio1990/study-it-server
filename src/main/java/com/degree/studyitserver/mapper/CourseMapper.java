@@ -1,9 +1,7 @@
 package com.degree.studyitserver.mapper;
 
 import com.degree.studyitserver.domain.dto.CourseDto;
-import com.degree.studyitserver.domain.dto.TutoringSessionDto;
 import com.degree.studyitserver.domain.entity.Course;
-import com.degree.studyitserver.domain.entity.TutoringSession;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.ReportingPolicy;
