@@ -28,6 +28,10 @@ public class Course {
     @JoinColumn(name="creator_id", nullable=false)
     private User creator;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "content_id", referencedColumnName = "id")
+    private Content content;
+
     public void addTutoringSession(TutoringSession tutoringSession) {
         tutoringSessions.add(tutoringSession);
         tutoringSession.setCourse(this);

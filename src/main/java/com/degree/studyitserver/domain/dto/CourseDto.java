@@ -14,5 +14,6 @@ public class CourseDto {
     private Short year;
     private List<TutoringSessionDto> tutoringSessionDtos;
     private UserDto creator;
+    private ContentDto content;
 
 }

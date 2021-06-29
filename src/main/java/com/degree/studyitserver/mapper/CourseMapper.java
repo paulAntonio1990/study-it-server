@@ -11,7 +11,7 @@ import java.util.List;
 
 @Mapper(componentModel = "spring",
         unmappedTargetPolicy = ReportingPolicy.IGNORE,
-        uses = {TutoringSessionMapper.class, UserMapper.class})
+        uses = {TutoringSessionMapper.class, UserMapper.class, ContentMapper.class})
 public interface CourseMapper {
     CourseMapper INSTANCE = Mappers.getMapper(CourseMapper.class);
 
