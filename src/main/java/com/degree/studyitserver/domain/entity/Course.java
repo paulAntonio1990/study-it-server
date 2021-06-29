@@ -24,6 +24,10 @@ public class Course {
     @OneToMany(mappedBy = "course")
     private List<TutoringSession> tutoringSessions = new ArrayList<>();
 
+    @ManyToOne
+    @JoinColumn(name="creator_id", nullable=false)
+    private User creator;
+
     public void addTutoringSession(TutoringSession tutoringSession) {
         tutoringSessions.add(tutoringSession);
         tutoringSession.setCourse(this);

@@ -36,6 +36,9 @@ public class User {
     @OneToMany(mappedBy = "user")
     private List<SessionMessage> sessionMessages = new ArrayList<>();
 
+    @OneToMany(mappedBy = "creator")
+    private List<Course> createdCourses = new ArrayList<>();
+
     public User() {}
 
     public User(String userName, String email, String password) {

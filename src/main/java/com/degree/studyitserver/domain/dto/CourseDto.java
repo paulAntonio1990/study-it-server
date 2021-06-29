@@ -13,5 +13,6 @@ public class CourseDto {
     private String studyProgram;
     private Short year;
     private List<TutoringSessionDto> tutoringSessionDtos;
+    private UserDto creator;
 
 }
