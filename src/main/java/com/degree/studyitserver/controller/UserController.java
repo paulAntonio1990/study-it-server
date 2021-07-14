@@ -31,7 +31,6 @@ public class UserController {
     @PreAuthorize("hasRole('ADMIN')")
     public List<UserDto> findAll() {
         List<User> users = userRepository.findAll();
-
         return  userMapper.toDtos(users);
     }
 }
