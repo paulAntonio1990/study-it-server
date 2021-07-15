@@ -34,7 +34,7 @@ public class TutoringSessionController {
 
     @GetMapping("/all-by-course/{id}")
     @PreAuthorize("hasRole('STUDENT') or hasRole('PROFESOR') or hasRole('ADMIN')")
-    public List<TutoringSessionDto> findAlByCourseId(@PathVariable(name = "id") Long courseId) {
+    public List<TutoringSessionDto> findAllByCourseId(@PathVariable(name = "id") Long courseId) {
         return tutoringSessionMapper.toDtos(tutoringSessionService.findAllByCourseId(courseId));
     }
 

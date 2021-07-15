@@ -11,11 +11,12 @@ import java.util.List;
 
 @Mapper(componentModel = "spring",
         unmappedTargetPolicy = ReportingPolicy.IGNORE,
-        uses = {TutoringSessionMapper.class, UserMapper.class, ContentMapper.class})
+        uses = {TutoringSessionMapper.class, UserMapper.class, ContentMapper.class, PostMapper.class})
 public interface CourseMapper {
     CourseMapper INSTANCE = Mappers.getMapper(CourseMapper.class);
 
     @Mapping(source = "course.tutoringSessions", target = "tutoringSessionDtos")
+    @Mapping(source = "course.posts", target = "postDtos")
     CourseDto toDto(Course course);
 
     Course toEntity(CourseDto courseDto);

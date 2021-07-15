@@ -15,5 +15,6 @@ public class CourseDto {
     private List<TutoringSessionDto> tutoringSessionDtos;
     private UserDto creator;
     private ContentDto content;
+    private List<PostDto> postDtos;
 
 }
