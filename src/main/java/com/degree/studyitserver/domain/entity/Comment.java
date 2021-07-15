@@ -3,20 +3,16 @@ package com.degree.studyitserver.domain.entity;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 @Data
 @Entity
-@Table(name = "posts")
-public class Post {
+@Table(name = "comments")
+public class Comment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    private String heading;
 
     private String body;
 
@@ -27,9 +23,6 @@ public class Post {
     private Date date;
 
     @ManyToOne
-    @JoinColumn(name="course_id", nullable=false)
-    private Course course;
-
-    @OneToMany(mappedBy = "post")
-    private List<Comment> comments = new ArrayList<>();
+    @JoinColumn(name="post_id", nullable=false)
+    private Post post;
 }

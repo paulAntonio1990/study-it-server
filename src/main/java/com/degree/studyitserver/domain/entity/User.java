@@ -4,8 +4,6 @@ import lombok.Data;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Data
 @Entity
@@ -29,7 +27,7 @@ public class User {
     @Size(max = 125)
     private String password;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "role_id")
     private Role role;
 
