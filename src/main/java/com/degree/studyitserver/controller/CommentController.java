@@ -28,4 +28,10 @@ public class CommentController {
         Comment comment = commentService.create(postId, commentMapper.toEntity(commentDto));
         return commentMapper.toDto(comment);
     }
+
+    @DeleteMapping("/{id}")
+    @PreAuthorize("hasRole('STUDENT') or hasRole('PROFESOR') or hasRole('ADMIN')")
+    public void deleteCommentById(@PathVariable(name = "id") Long id) {
+        commentService.deleteById(id);
+    }
 }

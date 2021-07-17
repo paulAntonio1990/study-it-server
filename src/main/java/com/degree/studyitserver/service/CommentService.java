@@ -27,4 +27,9 @@ public class CommentService {
         comment.setDate(new Date());
         return commentRepository.save(comment);
     }
+
+    public void deleteById(Long id) {
+        Comment comment = commentRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid comment ID!"));
+        commentRepository.delete(comment);
+    }
 }

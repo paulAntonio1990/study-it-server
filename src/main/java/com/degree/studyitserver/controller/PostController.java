@@ -36,4 +36,10 @@ public class PostController {
     public List<PostDto> findAllByCourseId(@PathVariable(name = "courseId") Long courseId) {
         return postMapper.toDtos(postService.findAllByCourseId(courseId));
     }
+
+    @DeleteMapping("/{id}")
+    @PreAuthorize("hasRole('STUDENT') or hasRole('PROFESOR') or hasRole('ADMIN')")
+    public void deletePostById(@PathVariable(name = "id") Long id) {
+        postService.deleteById(id);
+    }
 }

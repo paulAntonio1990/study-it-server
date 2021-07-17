@@ -32,4 +32,9 @@ public class PostService {
     public List<Post> findAllByCourseId(Long courseId) {
         return postRepository.findAllByCourse_Id(courseId);
     }
+
+    public void deleteById(Long id) {
+        Post post = postRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid post ID!"));
+        postRepository.delete(post);
+    }
 }
