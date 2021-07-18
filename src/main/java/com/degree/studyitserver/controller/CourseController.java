@@ -1,6 +1,7 @@
 package com.degree.studyitserver.controller;
 
 import com.degree.studyitserver.domain.dto.CourseDto;
+import com.degree.studyitserver.domain.entity.Chapter;
 import com.degree.studyitserver.domain.entity.Course;
 import com.degree.studyitserver.domain.entity.User;
 import com.degree.studyitserver.mapper.CourseMapper;
@@ -10,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:4200")
@@ -39,7 +41,14 @@ public class CourseController {
         Course course = courseMapper.toEntity(newCourse);
         course.setCreator(user);
 
-        return courseMapper.toDto(courseService.create(course));
+        List<Chapter> chapters = new ArrayList<>(course.getContent().getChapters());
+//        course.getContent().setChapters(new ArrayList<>());
+//
+//        for (Chapter chapter : chapters) {
+//            course.getContent().addChapter(chapter);
+//        }
+
+        return courseMapper.toDto(courseService.create(course, chapters));
     }
 
     @GetMapping("/find-all")

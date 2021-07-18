@@ -42,4 +42,7 @@ public class Course {
         tutoringSessions.remove(tutoringSession);
         tutoringSession.setCourse(null);
     }
+
+    @OneToMany(mappedBy = "course")
+    private List<Post> posts = new ArrayList<>();
 }

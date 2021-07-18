@@ -31,11 +31,14 @@ public class User {
     @JoinColumn(name = "role_id")
     private Role role;
 
-    @OneToMany(mappedBy = "user")
-    private List<SessionMessage> sessionMessages = new ArrayList<>();
-
-    @OneToMany(mappedBy = "creator")
-    private List<Course> createdCourses = new ArrayList<>();
+//    @OneToMany(mappedBy = "user")
+//    private List<SessionMessage> sessionMessages = new ArrayList<>();
+//
+//    @OneToMany(mappedBy = "creator")
+//    private List<Course> createdCourses = new ArrayList<>();
+//
+//    @OneToMany(mappedBy = "creator")
+//    private List<Post> createdPosts = new ArrayList<>();
 
     public User() {}
 
